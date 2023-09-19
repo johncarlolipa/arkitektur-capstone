@@ -1,5 +1,8 @@
 import Link from "next/link";
 import React from "react";
+import parse from "html-react-parser";
+import Image from "next/image";
+
 
 export const getStaticProps = async () => {
   const res = await fetch(
