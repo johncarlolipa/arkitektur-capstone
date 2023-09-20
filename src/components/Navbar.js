@@ -43,7 +43,7 @@ export default function Navbar() {
               </div>
               <div className="relative z-0 flex flex-1 items-center justify-center px-2 sm:absolute sm:inset-0">
                 <div className="flex">
-                  <ul className="hidden md:flex items-center gap-12 text-black font-poppins text-base font-medium">
+                  <ul className="hidden md:flex items-center gap-12 text-black hover:text-green font-poppins text-base font-medium">
                     {navigation.map((item) => (
                       <li key={item.name}>
                         <Link href={item.href}>{item.name}</Link>
@@ -76,18 +76,6 @@ export default function Navbar() {
 
                 {/* Profile dropdown */}
                 <Menu as="div" className="relative ml-4 flex-shrink-0">
-                  {/* <div>
-                    <Menu.Button className="flex rounded-full text-sm text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
-                      <span className="sr-only">Open user menu</span>
-                      <Image
-                        className="h-8 w-8 rounded-full"
-                        src={user.imageUrl}
-                        alt=""
-                        width={0}
-                        height={0}
-                      />
-                    </Menu.Button>
-                  </div> */}
                   <Transition
                     as={Fragment}
                     enter="transition ease-out duration-100"
