@@ -2,6 +2,7 @@ import Link from "next/link";
 import React from "react";
 import Image from "next/image";
 import { Playfair_Display } from "next/font/google";
+import CTA from "@/components/CTA";
 
 const playfair_display = Playfair_Display({ subsets: ["latin"] });
 
@@ -79,6 +80,7 @@ export default function blogs({ blogs }) {
           ))}
         </div>
       </div>
+      <CTA />
     </div>
   );
 }
