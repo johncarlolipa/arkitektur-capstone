@@ -5,7 +5,7 @@ import Image from "next/image";
 export const getStaticPaths = async () => {
   try {
     const res = await fetch(
-      "https://dev-arkitektur-headless.pantheonsite.io//wp-json/wp/v2/posts?_embed"
+      "https://dev-arkitektur-headless.pantheonsite.io//wp-json/wp/v2/posts"
     );
     if (!res.ok) {
       throw new Error("Failed to fetch data");
@@ -36,7 +36,7 @@ export const getStaticProps = async (context) => {
 
   try {
     const res = await fetch(
-      `https://dev-arkitektur-headless.pantheonsite.io//wp-json/wp/v2/posts?_embed/${id}`
+      `https://dev-arkitektur-headless.pantheonsite.io//wp-json/wp/v2/posts/${id}`
     );
     if (!res.ok) {
       throw new Error("Failed to fetch post data");
