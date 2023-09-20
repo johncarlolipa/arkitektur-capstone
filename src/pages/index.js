@@ -1,3 +1,7 @@
+import About from "@/components/About";
+import Process from "@/components/Process";
+import Services from "@/components/Services";
+import Testimonials from "@/components/Testimonials";
 import Head from "next/head";
 import React from "react";
 
@@ -7,7 +11,10 @@ export default function Home() {
       <Head>
         <title>Arkitektur | Homepage</title>
       </Head>
-      heloo
+      <Services />
+      <About />
+      <Process />
+      <Testimonials />
     </div>
   );
 }
