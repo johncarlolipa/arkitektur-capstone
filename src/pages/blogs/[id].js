@@ -84,8 +84,8 @@ export default function Details({ post }) {
                 <Image
                   src={post.x_featured_media}
                   alt={post.title.rendered}
-                  width={0}
-                  height={0}
+                  width={1000}
+                  height={1000}
                   className="absolute inset-0 h-full w-full rounded-2xl bg-gray-50 object-cover"
                 />
                 <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-gray-900/10" />
@@ -103,8 +103,8 @@ export default function Details({ post }) {
                       <Image
                         src={post.x_featured_media}
                         alt={post.title.rendered}
-                        width={0}
-                        height={0}
+                        width={1000}
+                        height={1000}
                         className="h-10 w-10 rounded-full bg-gray-50"
                       />
                       <div className="text-sm leading-6">
