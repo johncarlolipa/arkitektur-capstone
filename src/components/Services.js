@@ -13,7 +13,7 @@ const services = [
 
 export default function Services() {
   return (
-    <div className="bg-white pb-24">
+    <div className="bg-white py-24">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <p className="mb-4 text-md leading-8 text-[#A4A4A4]">Our Services</p>
