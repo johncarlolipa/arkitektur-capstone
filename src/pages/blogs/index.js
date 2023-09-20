@@ -40,8 +40,8 @@ export default function blogs({ blogs }) {
               <Image
                 src={post.x_featured_media}
                 alt={post.title.rendered}
-                width={0}
-                height={0}
+                width={100}
+                height={100}
                 className="absolute inset-0 -z-10 h-full w-full object-cover"
               />
               <div className="absolute inset-0 -z-10 bg-gradient-to-t from-gray-900 via-gray-900/40" />
@@ -62,8 +62,8 @@ export default function blogs({ blogs }) {
                     <Image
                       src={post.x_featured_media}
                       alt={post.title.rendered}
-                      width={0}
-                      height={0}
+                      width={100}
+                      height={100}
                       className="h-6 w-6 flex-none rounded-full bg-white/10"
                     />
                     {post.x_author}
