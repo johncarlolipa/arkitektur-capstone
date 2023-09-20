@@ -1,94 +1,172 @@
+import { Fragment } from "react";
+import { Disclosure, Menu, Transition } from "@headlessui/react";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import Link from "next/link";
 
+const navigation = [
+  { name: "Home", href: "/", current: true },
+  { name: "Blog", href: "/blogs", current: false },
+  { name: "Contact", href: "/contact", current: false },
+];
+const userNavigation = [
+  { name: "Settings", href: "/" },
+  { name: "Sign out", href: "/" },
+];
+
+function classNames(...classes) {
+  return classes.filter(Boolean).join(" ");
+}
+
 export default function Navbar() {
   return (
-    <section className="p-20">
-      <nav className="bg-white fixed w-full z-20 top-0 left-0 border-b border-gray-200">
-        <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-          <Link href="/" className="flex items-center">
-            <Image
-              width={30}
-              height={100}
-              className="h-7"
-              src="/images/favicon.png"
-              alt="arkitektur_logo"
-            />
-            <span className=" ml-2 text-xl font-semibold whitespace-nowrap text-black">
-              Arkitektur
-            </span>
-          </Link>
-          <div className="flex md:order-2 space-x-2">
-            <button type="button" className="text-gray-600 p-2">
-              Sign Up
-            </button>
-            <button
-              type="button"
-              className="text-gray-200 bg-green font-medium text-sm px-4 py-2 text-center mr-3 md:mr-0"
-            >
-              Sign In
-            </button>
-            <button
-              data-collapse-toggle="navbar-sticky"
-              type="button"
-              className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
-              aria-controls="navbar-sticky"
-              aria-expanded="false"
-            >
-              <span className="sr-only">Open main menu</span>
-              <svg
-                className="w-5 h-5"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 17 14"
-              >
-                <path
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M1 1h15M1 7h15M1 13h15"
-                />
-              </svg>
-            </button>
+    <Disclosure as="header" className="bg-white sticky top-0 z-50">
+      {({ open }) => (
+        <>
+          <div className="mx-auto max-w-7xl px-2 sm:px-4 lg:divide-y lg:divide-gray-700 lg:px-8">
+            <div className="relative flex h-16 justify-between">
+              <div className="relative z-10 flex px-2 lg:px-0">
+                <div className="flex flex-shrink-0 items-center">
+                  <Link href="/" className="flex items-center">
+                    <Image
+                      width={30}
+                      height={30}
+                      className="h-7"
+                      src="/images/favicon.png"
+                      alt="arkitektur_logo"
+                    />
+                    <span className=" ml-2 text-xl font-semibold whitespace-nowrap text-black">
+                      Arkitektur
+                    </span>
+                  </Link>
+                </div>
+              </div>
+              <div className="relative z-0 flex flex-1 items-center justify-center px-2 sm:absolute sm:inset-0">
+                <div className="flex">
+                  <ul className="hidden md:flex items-center gap-12 text-black font-poppins text-base font-medium">
+                    {navigation.map((item) => (
+                      <li key={item.name}>
+                        <Link href={item.href}>{item.name}</Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+              <div className="relative z-10 flex items-center lg:hidden">
+                {/* Mobile menu button */}
+                <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-black hover:bg-green hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                  <span className="sr-only">Open menu</span>
+                  {open ? (
+                    <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
+                  ) : (
+                    <Bars3Icon className="block h-6 w-6" aria-hidden="true" />
+                  )}
+                </Disclosure.Button>
+              </div>
+              <div className="hidden lg:relative lg:z-10 lg:ml-4 lg:flex lg:items-center space-x-2">
+                <button type="button" className="text-gray-600 p-2">
+                  Sign Up
+                </button>
+                <button
+                  type="button"
+                  className="text-gray-200 bg-green  hover:bg-[#FFFF99] hover:text-green text-sm px-4 py-2 text-center mr-3 md:mr-0"
+                >
+                  Sign In
+                </button>
+
+                {/* Profile dropdown */}
+                <Menu as="div" className="relative ml-4 flex-shrink-0">
+                  {/* <div>
+                    <Menu.Button className="flex rounded-full text-sm text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                      <span className="sr-only">Open user menu</span>
+                      <Image
+                        className="h-8 w-8 rounded-full"
+                        src={user.imageUrl}
+                        alt=""
+                        width={0}
+                        height={0}
+                      />
+                    </Menu.Button>
+                  </div> */}
+                  <Transition
+                    as={Fragment}
+                    enter="transition ease-out duration-100"
+                    enterFrom="transform opacity-0 scale-95"
+                    enterTo="transform opacity-100 scale-100"
+                    leave="transition ease-in duration-75"
+                    leaveFrom="transform opacity-100 scale-100"
+                    leaveTo="transform opacity-0 scale-95"
+                  >
+                    <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                      {userNavigation.map((item) => (
+                        <Menu.Item key={item.name}>
+                          {({ active }) => (
+                            <a
+                              href={item.href}
+                              className={classNames(
+                                active ? "bg-gray-100" : "",
+                                "block px-4 py-2 text-sm text-gray-700"
+                              )}
+                            >
+                              {item.name}
+                            </a>
+                          )}
+                        </Menu.Item>
+                      ))}
+                    </Menu.Items>
+                  </Transition>
+                </Menu>
+              </div>
+            </div>
           </div>
-          <div
-            className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
-            id="navbar-sticky"
-          >
-            <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white">
-              <li>
-                <Link
-                  href="/"
-                  className="block py-2 pl-3 pr-4 text-white  rounded md:bg-transparent md:text-black md:p-0 md:dark:text-[#006D5B]"
-                  aria-current="page"
+
+          <Disclosure.Panel as="nav" className="lg:hidden" aria-label="Global">
+            <div className="space-y-1 px-2 pb-3 pt-2">
+              {navigation.map((item) => (
+                <Disclosure.Button
+                  key={item.name}
+                  as="a"
+                  href={item.href}
+                  className={classNames(
+                    item.current
+                      ? "bg-green text-white"
+                      : "text-black hover:bg-green hover:text-white",
+                    "block rounded-md py-2 px-3 text-base font-medium"
+                  )}
+                  aria-current={item.current ? "page" : undefined}
                 >
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/blogs"
-                  className="block py-2 pl-3 pr-4 text-white  rounded md:bg-transparent md:text-black md:p-0 md:dark:text-[#006D5B]"
-                  aria-current="page"
+                  {item.name}
+                </Disclosure.Button>
+              ))}
+            </div>
+            <div className="border-t border-gray-700 pb-3 pt-4">
+              <div className="flex items-center justify-end px-4 space-x-4">
+                <button type="button" className="text-gray-600 p-2">
+                  Sign Up
+                </button>
+                <button
+                  type="button"
+                  className="text-gray-200 bg-green  hover:bg-[#FFFF99] hover:text-green font-medium text-sm px-4 py-2 text-center mr-3 md:mr-0"
                 >
-                  Blogs
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/contact"
-                  className="block py-2 pl-3 pr-4 text-white  rounded md:bg-transparent md:text-black md:p-0 md:dark:text-[#006D5B]"
-                  aria-current="page"
-                >
-                  Contact
-                </Link>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </section>
+                  Sign In
+                </button>
+              </div>
+              <div className="mt-3 space-y-1 px-2">
+                {userNavigation.map((item) => (
+                  <Disclosure.Button
+                    key={item.name}
+                    as="a"
+                    href={item.href}
+                    className="block rounded-md px-3 py-2 text-base font-medium text-black   hover:bg-green hover:text-white"
+                  >
+                    {item.name}
+                  </Disclosure.Button>
+                ))}
+              </div>
+            </div>
+          </Disclosure.Panel>
+        </>
+      )}
+    </Disclosure>
   );
 }
