@@ -43,9 +43,12 @@ export default function Navbar() {
               </div>
               <div className="relative z-0 flex flex-1 items-center justify-center px-2 sm:absolute sm:inset-0">
                 <div className="flex">
-                  <ul className="hidden md:flex items-center gap-12 text-black hover:text-green font-poppins text-base font-medium">
+                  <ul className="hidden md:flex items-center gap-12 text-black font-poppins text-base font-medium">
                     {navigation.map((item) => (
-                      <li key={item.name}>
+                      <li
+                        key={item.name}
+                        className=" text-black hover:text-green"
+                      >
                         <Link href={item.href}>{item.name}</Link>
                       </li>
                     ))}
