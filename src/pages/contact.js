@@ -1,5 +1,4 @@
 import { Playfair_Display } from "next/font/google";
-import Head from "next/head";
 import {
   BuildingOffice2Icon,
   EnvelopeIcon,
@@ -13,7 +12,6 @@ const playfair_display = Playfair_Display({ subsets: ["latin"] });
 export default function Example() {
   return (
     <div className="relative isolate bg-white pt-12">
-      
       <div className="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2">
         <div className="relative px-6 pb-20">
           <div className="mx-auto max-w-xl lg:mx-0 lg:max-w-lg">
