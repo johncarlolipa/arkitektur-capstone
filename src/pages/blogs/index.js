@@ -1,7 +1,6 @@
 import Link from "next/link";
 import React from "react";
 import Image from "next/image";
-import Head from "next/head";
 import { Playfair_Display } from "next/font/google";
 import CTA from "@/components/CTA";
 
@@ -21,9 +20,6 @@ export const getStaticProps = async () => {
 export default function blogs({ blogs }) {
   return (
     <div className="bg-white pb-32">
-      <Head>
-        <title>Arkitektur | Blogs</title>
-      </Head>
        <section aria-labelledby="cause-heading">
           <div className="relative bg-gray-800 px-6 py-32 sm:px-12 sm:py-40 lg:px-16">
             <div className="absolute inset-0 overflow-hidden">
