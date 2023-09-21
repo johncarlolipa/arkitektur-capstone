@@ -4,9 +4,7 @@ import {
   EnvelopeIcon,
   PhoneIcon,
 } from "@heroicons/react/24/outline";
-import { Inter } from "next/font/google";
 
-const inter = Inter({ subsets: ["latin"] });
 const playfair_display = Playfair_Display({ subsets: ["latin"] });
 
 export default function Example() {
@@ -15,7 +13,7 @@ export default function Example() {
       <div className="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2">
         <div className="relative px-6 pb-20">
           <div className="mx-auto max-w-xl lg:mx-0 lg:max-w-lg">
-            <p className={`${inter.className} mb-4 text-md leading-8 text-[#A4A4A4]`}>
+            <p className="mb-4 text-md leading-8 text-[#A4A4A4]">
               Get In Touch
             </p>
             <h2
@@ -24,7 +22,7 @@ export default function Example() {
             >
               Connect with us today and unlock a world of possibilities
             </h2>
-            <p className={`${inter.className} mt-6 text-lg leading-8 text-gray-600`}>
+            <p className="mt-6 text-lg leading-8 text-gray-600">
               Our team is dedicated to understanding your needs and providing
               tailored solutions that bring the best results. Lets start a
               conversation and embark on a journey together.
@@ -38,7 +36,7 @@ export default function Example() {
                     aria-hidden="true"
                   />
                 </dt>
-                <dd className={`${inter.className}`}>
+                <dd>
                   Paseo De Roxas St Cor Makati Ave, Cor Ayala Ave, Makati, 1209
                   Metro Manila
                 </dd>
@@ -51,7 +49,7 @@ export default function Example() {
                     aria-hidden="true"
                   />
                 </dt>
-                <dd className={`${inter.className}`}>
+                <dd>
                   <a
                     className="hover:text-gray-900"
                     href="tel:+1 (555) 234-5678"
@@ -68,7 +66,7 @@ export default function Example() {
                     aria-hidden="true"
                   />
                 </dt>
-                <dd className={`${inter.className}`}>
+                <dd>
                   <a
                     className="hover:text-gray-900"
                     href="mailto:hello@example.com"
