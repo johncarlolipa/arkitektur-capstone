@@ -1,9 +1,11 @@
 import Link from "next/link";
 import React from "react";
 import Image from "next/image";
+import { Inter } from "next/font/google";
 import { Playfair_Display } from "next/font/google";
 import CTA from "@/components/CTA";
 
+const inter = Inter({ subsets: ["latin"] });
 const playfair_display = Playfair_Display({ subsets: ["latin"] });
 
 export const getStaticProps = async () => {
@@ -19,7 +21,7 @@ export const getStaticProps = async () => {
 
 export default function blogs({ blogs }) {
   return (
-    <div className="bg-white pb-32">
+    <div className={`${inter.className} bg-white pb-32`}>
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="text-center">
           <p className="mb-4 text-md leading-8 text-[#A4A4A4]">From the Blog</p>
