@@ -13,7 +13,7 @@ const playfair_display = Playfair_Display({ subsets: ["latin"] });
 
 export default function Example() {
   return (
-    <div className={`${inter.className} relative isolate bg-white`}>
+    <div className={`${inter.className} relative isolate bg-white mt-12`}>
       <Head>
         <title>Arkitektur | Contact</title>
       </Head>
