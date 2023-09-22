@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function Example() {
     return (
       <div className="relative bg-white">
@@ -5,7 +7,7 @@ export default function Example() {
           <div className="px-6 pb-24 pt-10 sm:pb-32 lg:col-span-7 lg:px-0 lg:pb-56 lg:pt-48 xl:col-span-6">
             <div className="mx-auto max-w-2xl lg:mx-0">
               <h1 className="mt-24 text-4xl font-bold tracking-tight text-gray-900 sm:mt-10 sm:text-6xl">
-                We're help build your dream professionally
+                We&apos;re help build your dream professionally
               </h1>
               <p className="mt-6 text-lg leading-8 text-gray-600">
                 We always prioritize the maximum possible results with modern methods, and the latest technology that we use so far the client is very proud of the solid results.
@@ -24,10 +26,12 @@ export default function Example() {
             </div>
           </div>
           <div className="relative lg:col-span-5 lg:-mr-8 xl:absolute xl:inset-0 xl:left-1/2 xl:mr-0">
-            <img
+            <Image
               className="aspect-[3/2] w-full bg-gray-50 object-cover lg:absolute lg:inset-0 lg:aspect-auto lg:h-full"
               src="/images/image_1.jpg"
               alt=""
+              width={1000}
+              height={1000}
             />
           </div>
         </div>
