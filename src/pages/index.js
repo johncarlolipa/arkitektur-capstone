@@ -9,7 +9,18 @@ import { Inter } from "next/font/google";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function Home() {
+import { getTestimonialsData } from "../../utils/api";
+export const getStaticProps = async () => {
+  const data = await getTestimonialsData(); // Fetch data using a utility function
+
+  return {
+    props: {
+      testimonialsData: data,
+    },
+  };
+};
+
+export default function Home({ testimonialsData }) {
   return (
     <div className={`${inter.className}`}>
       <Head>
@@ -19,7 +30,7 @@ export default function Home() {
       <Services />
       <About />
       <Process />
-      <Testimonials />
+      <Testimonials pages={testimonialsData} />
     </div>
   );
 }
