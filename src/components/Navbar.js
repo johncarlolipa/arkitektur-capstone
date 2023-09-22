@@ -3,6 +3,9 @@ import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import Link from "next/link";
+import { Inter } from "next/font/google";
+
+const inter = Inter({ subsets: ["latin"] });
 
 const navigation = [
   { name: "Home", href: "/", current: true },
@@ -20,7 +23,7 @@ function classNames(...classes) {
 
 export default function Navbar() {
   return (
-    <Disclosure as="header" className="bg-white sticky top-0 z-50">
+    <Disclosure as="header" className={`${inter.className} bg-white sticky top-0 z-50`}>
       {({ open }) => (
         <>
           <div className="mx-auto max-w-7xl px-2 sm:px-4 lg:divide-y lg:divide-gray-700 lg:px-8">
