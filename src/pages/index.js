@@ -1,4 +1,5 @@
 import About from "@/components/About";
+import Hero from "@/components/Hero";
 import Process from "@/components/Process";
 import Services from "@/components/Services";
 import Testimonials from "@/components/Testimonials";
@@ -14,6 +15,7 @@ export default function Home() {
       <Head>
         <title>Arkitektur | Homepage</title>
       </Head>
+      <Hero />
       <Services />
       <About />
       <Process />
